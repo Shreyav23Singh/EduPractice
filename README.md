@@ -66,3 +66,6 @@ li[3].style.borderWidth="5px";
 /* for(var i=0 ; i<items.length ;i++){
     items[i].style.backgroundColor='pink';
 } */
+
+Q1.What is the advantage of queryselector's against getelementsbyclassname and getelementsbytagname
+Q2.What is the difference between queryselector and queryselectorall?
