@@ -152,3 +152,74 @@ var h1=document.querySelector('header h1');
 console.log(newDiv)
 newDiv.style.fontSize ='30 px';
 //container.insertBefore(newDiv,h1);
+
+//Add or remove Items
+var form=document.getElementById('addForm');
+var itemList =document.getElementById('items');
+var filter =document.getElementById('filter');
+
+//form submit event
+form.addEventListener('submit' , addItem);
+//delete event
+itemList.addEventListener('click' , removeItem)
+//filter event
+filter.addEventListener('keyup' , filterItems);
+
+//addItem- create a function
+
+function addItem(e){ //here e is the object
+    e.preventDefault(); // It will prevent default value
+    //console.log(1); // it will print default value --If we don't want default value than 
+
+    //Get Input Value
+    var newItem=document.getElementById('item').value;
+
+    //create new li element
+    var li=document.createElement('li');
+    //Add Class
+    li.className='list-group-item';
+    //Add textNode with input value
+    li.appendChild(document.createTextNode(newItem));
+    //create del button element
+    var delButton =document.createElement('button');
+
+    //add classes to delete button
+    delButton.className ="btn btn-danger btn-sm float-right delete";
+    //Append text node
+    delButton.appendChild(document.createTextNode('X')); //still it's not working , becuase it is inside li . So , we need to
+    //add or appened outside the li
+
+    //Append button to li
+    li.appendChild(delButton);
+
+    //Append li to list
+    itemList.appendChild(li)
+
+}
+
+// Remove item
+function removeItem(e){
+    if(e.target.classList.contains('delete')){
+      if(confirm('Are You Sure?')){
+        var li = e.target.parentElement;
+        itemList.removeChild(li);
+      }
+    }
+
+}
+// Filter Items
+function filterItems(e){
+    // convert text to lowercase
+    var text = e.target.value.toLowerCase();
+    // Get lis
+    var items = itemList.getElementsByTagName('li');
+    // Convert to an array
+    Array.from(items).forEach(function(item){
+      var itemName = item.firstChild.textContent;
+      if(itemName.toLowerCase().indexOf(text) != -1){
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
