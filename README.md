@@ -69,3 +69,86 @@ li[3].style.borderWidth="5px";
 
 Q1.What is the advantage of queryselector's against getelementsbyclassname and getelementsbytagname
 Q2.What is the difference between queryselector and queryselectorall?
+
+//Traversing the DOM
+//I am gonna grab Item list here
+/* var itemList = document.querySelector('#items'); */
+/* //parent node
+console.log(itemList.parentElement);
+itemList.parentElement.style.backgroundColor='pink';
+console.log(itemList.parentElement.parentElement.parentElement); */
+
+/* //parent Element
+console.log(itemList.parentElement);
+itemList.parentElement.style.backgroundColor='pink';
+console.log(itemList.parentElement.parentElement.parentElement); */
+
+/* Both parentNode and parentElement are same */
+
+//Child Node
+/* console.log(itemList.childNodes);
+
+console.log(itemList.children);
+console.log(itemList.children[1]);
+itemList.children[1].style.backgroundColor='yellow';
+itemList.children[2].style.backgroundColor='cyan';
+itemList.children[0].style.backgroundColor='red';
+itemList.children[0].style.color='white';
+itemList.children[3].style.backgroundColor='orange'; */
+
+/* //first child
+console.log(itemList.firstChild);
+
+//firstElementChild
+console.log(itemList.firstElementChild);
+itemList.firstElementChild.textContent='Determination'; */
+
+/* //last child
+console.log(itemList.lastChild);
+
+//lastElementChild
+console.log(itemList.lastElementChild);
+itemList.lastElementChild.textContent='Consistency'; */
+
+
+/* //nextSibiling
+console.log(itemList.nextSibling); // It gives us the text 
+//nextElementSibiling
+console.log(itemList.nextElementSibling);
+ */
+
+/* //previoussibling
+console.log(itemList.previousSibling)
+
+//previousElementSibiling
+console.log(itemList.previousElementSibling);
+itemList.previousElementSibling.style.color="RED";
+itemList.previousElementSibling.textContent="Success"; */
+
+
+//createElement
+
+//create a Div
+var newDiv =document.createElement('div');
+
+//Add Class
+newDiv.className='Shreya';
+
+//Add id
+newDiv.id='Piku';
+
+//Add attribute
+newDiv.setAttribute('title' , 'Hello Div');
+
+//create textNode
+var newDivText =document.createTextNode('Hello World');
+
+//Add text to div
+newDiv.appendChild(newDivText);
+
+var container=document.querySelector('header.container');
+var h1=document.querySelector('header h1');
+
+console.log(newDiv)
+newDiv.style.fontSize ='30 px';
+//container.insertBefore(newDiv,h1);
