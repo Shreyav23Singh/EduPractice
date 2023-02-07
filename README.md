@@ -223,3 +223,4 @@ function filterItems(e){
       }
     });
   }
+Next Assignment -  how to store the data in the local storage.
